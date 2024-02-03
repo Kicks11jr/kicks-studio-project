@@ -26,7 +26,7 @@ html, * {
 }
 
 .crossCursor {
-    cursor: url ('images/crosshair.png'), auto !important;
+    cursor: url ('images/crosscursor.png'), auto !important;
     z-index: 2;
 }
 
@@ -249,7 +249,7 @@ header > h2 > span {
         calc(-50% - 120px)) scale(1);
 }
 
-/* slide 3 stays dafault */
+/* slide 3 stays default */
 
 /* slide 4 */
 .slide4 .img.i1 {
@@ -286,8 +286,64 @@ header.active {
     pointer-events: initial;
 }
 
-/* hide other slides for now */
-header:not(.active) {
-    display: none;
+/* Right controls */
+.controls {
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
 }
 
+.controls ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.controls ul li {
+    display: block;
+    position: relative;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background: white;
+    margin: 2rem 0;
+    cursor: pointer;
+}
+
+.controls ul li::before {
+    content: '';
+    display: block;
+    border: 2px solid white;
+    padding: .6rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform .3s ease;
+}
+
+.controls ul li:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.controls ul li.active::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.controls ul li::after {
+    content: '';
+    width: 1px;
+    height: calc(2rem + 4px);
+    background: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls ul li:last-child::after {
+    display: none;
+}
