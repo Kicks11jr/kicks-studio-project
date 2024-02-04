@@ -22,6 +22,8 @@ document.body.classList.remove("loading");
 var imageView = false; // whatever image is opened
 var currentOpenImage;
 var slide = 1; // current slide
+var pausedSlider = false; // slider paused state
+var progress = 0; // slider progress in second
 
 function init() {
     let imgs = document.querySelectorAll(".header-wrp img");
@@ -31,6 +33,9 @@ function init() {
             imgs.forEach((f) => {
                 if (f == i) return;
                 gsap.to(f, {opacity: .3});
+
+                // pause slider on image hover
+                pausedSlider = true;
             });
         });
         i.addEventListener("mouseleave", () => {
@@ -38,6 +43,9 @@ function init() {
             imgs.forEach((f) => {
                 gsap.to(f, {opacity: 1});
             });
+
+            // resume slider on mouseleave
+            pausedSlider = false;
         });
 
         i.addEventListener("click", selectImage);
@@ -259,6 +267,12 @@ function changeSlide(id) {
 
     // Set new active
     controls[id-1].classList.add("active");
+
+    // reset progress to zero on manual slide change
+    progress = 0;
+
+    // unpause slider on previously paused
+    pausedSlider = false;
 }
 
 // click events to right controls (index)
@@ -270,3 +284,34 @@ for (let i = 0; i < controls.length; i++) {
     });
 }
 
+function startProgressBar() {
+    setInterval(() => {
+        // If slider is paused skip interval
+        if (pausedSlider) return;
+
+        progress += .1;
+
+        // After 8 seconds, change slide
+        if (progress >= 8) {
+            changeSlide((slide % 4) + 1);
+            progress = 0;
+        }
+
+        gsap.to(".slideProgress", {
+            scaleX: progress / 8,
+            duration: .3});
+    }, 100);
+}
+startProgressBar();
+
+// change slide by arrow clicks
+let prevArrow = document.querySelector(".arrows svg:nth-child(1)");
+let nextArrow = document.querySelector(".arrows svg:nth-child(2)");
+
+prevArrow.addEventListener("click", () => {
+    let delta = slide == 1 ? 4 : slide - 1;
+    changeSlide(delta);
+})
+nextArrow.addEventListener("click", () => {
+    changeSlide((slide % 4) + 1);
+})

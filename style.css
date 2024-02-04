@@ -347,3 +347,212 @@ header.active {
 .controls ul li:last-child::after {
     display: none;
 }
+
+/* Bottom progress bar */
+.slideProgress {
+    width: 100%;
+    height: .5rem;
+    background: #B3AA91;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+/* Slide arrow controls right */
+
+.arrows {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    display: flex;
+    gap: 2rem;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.arrows svg line {
+    transition: stroke .3s ease;
+}
+.arrows svg:hover line {
+    stroke: #fff !important;
+}
+
+/* Left side socials */
+
+.header-wrp .socials {
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.header-wrp .socials a, .arrowDown {
+    color: white;
+    font-size: 1.4rem;
+    transition: color .3s ease;
+    text-decoration: none;
+}
+
+.header-wrp .socials a:hover {
+    color: #B3AA91;
+}
+
+/* TO OUR STUDIO LINK */
+.arrowDown {
+    position: absolute;
+    bottom: 5rem;
+    left: 3rem;
+    writing-mode: vertical-lr;
+    color: #aaa;
+    transition: color .3s ease;
+}
+
+.arrowDown:hover {
+    color: #fff;
+}
+
+.arrowDown i {
+    padding: 1rem 0;
+}
+
+/* STUDIO SECTION */
+.studio-section {
+    width: 100%;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 7rem;
+}
+
+.marquee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    padding: 1rem 0;
+    border-bottom: 2px solid #666;
+    border-top: 2px solid #666;
+}
+
+.marquee-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+    align-items: center;
+    color: white;
+    font-family: 'druk', sans-serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1.5px;
+    -webkit-text-fill-color: transparent;
+    width: 100vw;
+    flex-shrink: 0;
+    animation: marquee 10s linear infinite;
+}
+
+.marquee-content img {
+    filter: invert(1);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Studio grid view */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 500px;
+    justify-content: center;
+    column-gap: 0;
+    margin-top: 5rem;
+    overflow: hidden;
+
+}
+
+.grid .grid-el {
+    width: 600px;
+    height: 500px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.grid-el .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: .5rem 0;
+}
+
+.grid-el .title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.grid-el .tags span {
+    padding: .5rem 1rem;
+    border: 1px solid white;
+    white-space: nowrap;
+}
+
+.img-wrp {
+    height: 390px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-wrp img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    transition: opacity .5s ease;
+}
+
+.img-wrp img:hover {
+    opacity: .6;
+}
+
+/* Contact us button */
+.button {
+    color: white;
+    background: black;
+    display: block;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid white;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+    position: relative;
+    transition: background .3s ease, color .3s ease;
+}
+
+.button:hover {
+    background: white;
+    color: black;
+}
