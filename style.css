@@ -154,7 +154,6 @@ header > h2 {
     -webkit-text-fill-color: transparent;
     margin: 0;
     z-index: 2;
-    line-height: 16rem;
     pointer-events: none;
     overflow: hidden;
 
@@ -549,10 +548,150 @@ header.active {
     margin-bottom: 5rem;
     margin-top: 2rem;
     position: relative;
-    transition: background .3s ease, color .3s ease;
+    transition: background .3s ease;
 }
 
 .button:hover {
     background: white;
     color: black;
+}
+
+/* Contact section */
+.contact {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-start;
+    padding-top: 5rem;
+    box-sizing: border-box;
+}
+
+.contact h2 {
+    line-height: 14rem;
+    padding: 0;
+    margin: 0;
+    border: 2px solid white;
+    background: black;
+    z-index: 2;
+    position: relative;
+    font-size: clamp(0px, 20vw, 13rem);
+}
+
+.contact .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact .row h2 {
+    -webkit-text-stroke: 2px;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact ul {
+    list-style: none;
+}
+
+.contact .socials p, .contacts p {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.contact a {
+    color: white;
+    transition: color .3s ease;
+}
+
+.contact a:hover {
+    color: #B3AA91;
+}
+
+/** Make responsive adjustements **/
+@media (any-hover: none) {
+    .c {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1220px) {
+    .studio-section .grid-el {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    /* better contrast */
+    header.active .img img {
+        filter: brightness(.7);
+    }
+
+    .studio-section .marquee-content {
+        white-space: nowrap;
+    }
+
+    .studio-section .marquee-content span:last-of-type,
+    .studio-section .marquee-content img:last-of-type {
+        display: none;
+    }
+
+    .studio-section .grid {
+        padding: 0 10px;
+    }
+
+    .studio-section .grid-el {
+        width: 100%;
+    }
+
+    .studio-section .grid {
+        grid-template-columns: 1fr;
+        height: unset !important;
+    }
+
+}
+
+@media screen and (max-width: 490px) {
+    .header-wrp .controls {
+        right: 2rem;
+    }
+    .header-wrp .socials, .header-wrp .arrowDown {
+        left: 2rem;
+    }
+    .studio-section .marquee-content {
+        padding: 0 2%;
+    }
+    .studio-section .grid-el .title {
+        font-size: 1.5rem;
+    }
+    .contact-grid .row > h2 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .studio-section .marquee-content span:not(:first-of-type),
+
+    .studio-section .marquee-content img:not(:first-of-type) {
+        display: none;
+    }
+}
+
+@media screen and (max-height: 830px) {
+    .arrowDown {
+        color: white;
+        font-size: 1.2rem;
+        bottom: 3rem;
+    }
+}
+
+@media screen and (max-height: 730px) {
+    .arrowDown {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-height: 670px) {
+    .arrowDown {
+        display: none;
+    }
+    
 }

@@ -2,6 +2,20 @@
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
 
+/** LOADING ANIMATION **/
+gsap.from("nav",
+    {y: "-100%", ease: "power3.out", duration: 1.3}, 1.5);
+
+gsap.from(".controls",
+    {x: "20px", opacity: 0, duration: 1}, 1.3);
+
+gsap.from(".arrows",
+    {opacity: 0, duration: 1}, 1.3);
+
+gsap.from(".header-wrp .socials, .header-wrp .arrowDown",
+    {x: "-20px", opacity: 0, duration: 1}, 1.3);
+
+
 
 /* cursor logic */
 window.addEventListener("mousemove", (e) => {
@@ -315,3 +329,44 @@ prevArrow.addEventListener("click", () => {
 nextArrow.addEventListener("click", () => {
     changeSlide((slide % 4) + 1);
 })
+
+// STUDIO scroll effect
+var gridTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: '#studio',
+        start: 'top center',
+        once: true
+    }
+});
+
+var gridElements = document.querySelectorAll('.grid .grid-el');
+// graduation fade in each element
+for (let i = 1; i <= gridElements.length; i++) {
+    gridTl.from(`.grid .grid-el:nth-child(${i}) .row *`,
+        {y: '150%', duration: 1}, .3 * (i - 1));
+    gridTl.from(`.grid .grid-el:nth-child(${i}) .img-wrp`,
+        {height: 0, duration: 1}, .3 * 1);
+    gridTl.from(`.grid .grid-el:nth-child(${i}) img`,
+        {scale: 1.5, duration: 1, ease: "power3.out"}, .3 * i);
+}
+
+//Resize the while grid on animation 
+gridTl.from(".grid", {height: 0, duration: 2}, 0);
+
+// CONTACT scroll effect
+var scrollTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: '#studio .grid .grid-el:last-child',
+        start: 'top+=100 top',
+        end: '+=300',
+        scrub: 1,
+    }
+});
+
+// move grid upwards and hide
+scrollTl.to("#studio .grid", {y: '-20%', opacity: 0}, 0);
+
+// fade in and pull row
+scrollTl.from(".contact-grid", {y: '20%', opacity: 0}, .3);
+scrollTl.from(".contact-grid .row", {y: '-100%', opacity: 0}, .3);
+
