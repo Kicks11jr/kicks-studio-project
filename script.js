@@ -158,7 +158,7 @@ tl1.fromTo(".slide1 .title1 span", {
     y: '0%', opacity: 1
 }, .9);
 
-tl1.fromTo(".slide1 .title1 span", {
+tl1.fromTo(".slide1 .title2 span", {
     y: '40%', opacity: 0, duration: 1, ease: 'power3.out'
 }, {
     y: '0%', opacity: 1
@@ -185,7 +185,7 @@ tl2.fromTo(".slide2 .title1 span", {
     y: '0%', opacity: 1
 }, .9);
 
-tl2.fromTo(".slide2 .title1 span", {
+tl2.fromTo(".slide2 .title2 span", {
     y: '40%', opacity: 0, duration: 1, ease: 'power3.out'
 }, {
     y: '0%', opacity: 1
@@ -212,7 +212,7 @@ tl3.fromTo(".slide3 .title1 span", {
     y: '0%', opacity: 1
 }, .9);
 
-tl3.fromTo(".slide3 .title1 span", {
+tl3.fromTo(".slide3 .title2 span", {
     y: '40%', opacity: 0, duration: 1, ease: 'power3.out'
 }, {
     y: '0%', opacity: 1
@@ -239,7 +239,7 @@ tl4.fromTo(".slide4 .title1 span", {
     y: '0%', opacity: 1
 }, .9);
 
-tl4.fromTo(".slide4 .title1 span", {
+tl4.fromTo(".slide4 .title2 span", {
     y: '40%', opacity: 0, duration: 1, ease: 'power3.out'
 }, {
     y: '0%', opacity: 1

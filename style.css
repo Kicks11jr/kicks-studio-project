@@ -26,7 +26,7 @@ html, * {
 }
 
 .crossCursor {
-    cursor: url ('images/crosscursor.png'), auto !important;
+    cursor: url ('images/crosshair2.png'), auto !important;
     z-index: 2;
 }
 
